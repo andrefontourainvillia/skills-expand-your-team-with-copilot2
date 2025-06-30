@@ -1,0 +1,141 @@
+name: ✏️ Modify Activity Details
+description: Request changes to an existing activity's schedule, description, or settings
+title: "[MODIFY ACTIVITY] "
+labels: ["enhancement", "activity-modification"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Request changes to an existing activity
+        
+        Use this form to request changes to activities that are already in the system. Please provide specific details about what needs to be changed.
+
+  - type: dropdown
+    id: activity-name
+    attributes:
+      label: Which Activity Needs Changes?
+      description: Select the activity you want to modify
+      options:
+        - Chess Club
+        - Programming Class
+        - Morning Fitness
+        - Soccer Team
+        - Basketball Team
+        - Art Club
+        - Drama Club
+        - Math Club
+        - Debate Team
+        - Weekend Robotics Workshop
+        - Science Olympiad
+        - Sunday Chess Tournament
+        - Other (please specify in details)
+    validations:
+      required: true
+
+  - type: input
+    id: other-activity
+    attributes:
+      label: Other Activity Name
+      description: If you selected "Other" above, please specify the activity name
+      placeholder: e.g., "New Photography Club"
+
+  - type: checkboxes
+    id: change-type
+    attributes:
+      label: What needs to be changed?
+      description: Select all that apply
+      options:
+        - label: Schedule (days or times)
+        - label: Activity description
+        - label: Maximum number of participants
+        - label: Supervising teacher
+        - label: Activity name
+        - label: Other (specify in details below)
+
+  - type: textarea
+    id: current-details
+    attributes:
+      label: Current Details
+      description: What are the current details that need to be changed?
+      placeholder: e.g., "Currently meets Tuesdays 3:30-5:00 PM, max 15 students"
+    validations:
+      required: true
+
+  - type: textarea
+    id: requested-changes
+    attributes:
+      label: Requested Changes
+      description: What exactly do you want changed? Be specific.
+      placeholder: e.g., "Change to Wednesdays and Fridays 3:30-5:00 PM, increase max to 20 students"
+    validations:
+      required: true
+
+  - type: input
+    id: new-schedule-days
+    attributes:
+      label: New Meeting Days (if changing schedule)
+      description: Which days should the activity meet?
+      placeholder: e.g., "Monday, Wednesday, Friday"
+
+  - type: input
+    id: new-start-time
+    attributes:
+      label: New Start Time (if changing schedule)
+      description: What time should the activity start? (Use 12-hour format)
+      placeholder: e.g., "3:30 PM", "7:00 AM"
+
+  - type: input
+    id: new-end-time
+    attributes:
+      label: New End Time (if changing schedule)
+      description: What time should the activity end? (Use 12-hour format)
+      placeholder: e.g., "5:00 PM", "8:00 AM"
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason for Changes
+      description: Why are these changes needed?
+      placeholder: e.g., "Room availability conflict", "Teacher schedule change", "Student feedback"
+    validations:
+      required: true
+
+  - type: input
+    id: effective-date
+    attributes:
+      label: When should changes take effect?
+      description: When do you need these changes implemented?
+      placeholder: e.g., "Next week", "Beginning of next trimester", "Immediately"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: impact-acknowledgment
+    attributes:
+      label: Impact Acknowledgment
+      description: Please confirm your understanding
+      options:
+        - label: I understand that students currently registered may be affected
+          required: true
+        - label: I will notify currently registered students about changes
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## ✅ Acceptance Criteria
+        When this issue is completed:
+        - [ ] Activity details are updated in the system
+        - [ ] Changes are visible on the website
+        - [ ] Existing student registrations are preserved (unless capacity reduced)
+        - [ ] If schedule conflicts arise, they are resolved appropriately
+        - [ ] Activity filtering and search still work correctly
+
+        ## 💡 Technical Notes for Developers
+        - Update activity details in `src/backend/database.py`
+        - Convert any schedule changes to proper format (days array and 24-hour time)
+        - Ensure changes don't break existing functionality
+        - Test that the modified activity displays correctly
+        - Verify student registration still works
+        - Check if capacity changes affect current registrations

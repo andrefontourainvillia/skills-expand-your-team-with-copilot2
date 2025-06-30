@@ -1,0 +1,118 @@
+name: 🎯 Add New Activity/Club
+description: Request to add a new extracurricular activity or club to the system
+title: "[NEW ACTIVITY] "
+labels: ["enhancement", "new-activity"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Thank you for helping expand our extracurricular offerings!
+        
+        Please fill out this form to request a new activity or club. This information will help our technical team set up everything properly in the system.
+
+  - type: input
+    id: activity-name
+    attributes:
+      label: Activity/Club Name
+      description: What is the name of the new activity or club?
+      placeholder: e.g., "Coding Club", "Photography Club", "Tennis Team"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Activity Description
+      description: Provide a clear description of what students will do in this activity
+      placeholder: e.g., "Learn programming fundamentals and build software projects"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: schedule-days
+    attributes:
+      label: Meeting Days
+      description: Which days will this activity meet?
+      multiple: true
+      options:
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+        - Saturday
+        - Sunday
+    validations:
+      required: true
+
+  - type: input
+    id: start-time
+    attributes:
+      label: Start Time
+      description: What time does the activity start? (Use 12-hour format)
+      placeholder: e.g., "3:30 PM", "7:00 AM"
+    validations:
+      required: true
+
+  - type: input
+    id: end-time
+    attributes:
+      label: End Time
+      description: What time does the activity end? (Use 12-hour format)
+      placeholder: e.g., "5:00 PM", "8:00 AM"
+    validations:
+      required: true
+
+  - type: input
+    id: max-participants
+    attributes:
+      label: Maximum Number of Students
+      description: What's the maximum number of students that can participate?
+      placeholder: e.g., "20", "15", "30"
+    validations:
+      required: true
+
+  - type: input
+    id: teacher-supervisor
+    attributes:
+      label: Supervising Teacher
+      description: Which teacher will supervise this activity?
+      placeholder: e.g., "Ms. Rodriguez", "Mr. Chen"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-requirements
+    attributes:
+      label: Additional Requirements or Notes
+      description: Any special equipment, location requirements, or other important details?
+      placeholder: e.g., "Requires computer lab", "Need art supplies", "Outdoor field needed"
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      description: Please confirm the following
+      options:
+        - label: I have approval from the administration to start this activity
+          required: true
+        - label: I understand this will be added to the student activity registration system
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## ✅ Acceptance Criteria
+        When this issue is completed:
+        - [ ] New activity appears in the activities list on the website
+        - [ ] Students can register for the activity
+        - [ ] Activity shows correct schedule and details
+        - [ ] Participant limit is enforced
+        - [ ] Teacher can manage student registrations
+
+        ## 💡 Technical Notes for Developers
+        - Add new activity to `initial_activities` in `src/backend/database.py`
+        - Convert schedule to proper format with days array and 24-hour time
+        - Ensure activity appears on main page and is filterable
+        - Test student registration and teacher management functions

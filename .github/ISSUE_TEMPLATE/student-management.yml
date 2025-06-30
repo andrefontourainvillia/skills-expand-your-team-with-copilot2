@@ -1,0 +1,138 @@
+name: 👥 Student Management Help
+description: Request help with registering or removing students from activities
+title: "[STUDENT MANAGEMENT] "
+labels: ["help", "student-registration"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Need help managing student registrations?
+        
+        Use this form when you need assistance with student registration issues, bulk registrations, or registration problems.
+
+  - type: dropdown
+    id: help-type
+    attributes:
+      label: What kind of help do you need?
+      description: Select the type of assistance required
+      options:
+        - Register a student for an activity
+        - Remove a student from an activity
+        - Bulk register multiple students
+        - Fix a registration error
+        - Check registration status
+        - Transfer student between activities
+        - Other registration issue
+    validations:
+      required: true
+
+  - type: dropdown
+    id: activity-name
+    attributes:
+      label: Which Activity?
+      description: Select the activity involved
+      options:
+        - Chess Club
+        - Programming Class
+        - Morning Fitness
+        - Soccer Team
+        - Basketball Team
+        - Art Club
+        - Drama Club
+        - Math Club
+        - Debate Team
+        - Weekend Robotics Workshop
+        - Science Olympiad
+        - Sunday Chess Tournament
+        - Other (please specify below)
+    validations:
+      required: true
+
+  - type: input
+    id: other-activity
+    attributes:
+      label: Other Activity Name
+      description: If you selected "Other" above, please specify the activity name
+
+  - type: textarea
+    id: student-details
+    attributes:
+      label: Student Information
+      description: Provide student email(s) and any relevant details
+      placeholder: |
+        e.g., 
+        john.smith@mergington.edu
+        jane.doe@mergington.edu
+        
+        Or describe the specific students and situation
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Describe the Issue or Request
+      description: Explain exactly what needs to be done or what problem you're experiencing
+      placeholder: e.g., "Student cannot register - getting error message", "Need to register entire class roster", "Student registered twice by mistake"
+    validations:
+      required: true
+
+  - type: textarea
+    id: error-message
+    attributes:
+      label: Error Message (if applicable)
+      description: If you're getting an error, please copy the exact error message here
+      placeholder: e.g., "Already signed up for this activity", "Authentication required"
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency Level
+      description: How urgent is this request?
+      options:
+        - Low - Can wait a few days
+        - Medium - Needed within 1-2 days
+        - High - Needed by end of day
+        - Critical - Needed immediately
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that might be helpful?
+      placeholder: e.g., "Parent request", "Schedule conflict resolution", "Make-up for missed registration period"
+
+  - type: checkboxes
+    id: attempted-solutions
+    attributes:
+      label: What have you already tried?
+      description: Check all that apply
+      options:
+        - label: Tried registering through the website
+        - label: Verified student email address is correct
+        - label: Checked if activity is at capacity
+        - label: Confirmed student is not already registered
+        - label: Other (described above)
+
+  - type: markdown
+    attributes:
+      value: |
+        ## ✅ Acceptance Criteria
+        When this issue is completed:
+        - [ ] Student registration issue is resolved
+        - [ ] Students can successfully access their registered activities
+        - [ ] Registration status is correctly reflected in the system
+        - [ ] No duplicate or erroneous registrations remain
+        - [ ] Teacher can verify student registration status
+
+        ## 💡 Technical Notes for Developers
+        - Use the `/activities/{activity_name}/signup` endpoint for registrations
+        - Use the `/activities/{activity_name}/unregister` endpoint for removals
+        - Verify teacher authentication is working properly
+        - Check for activity capacity limits and conflicts
+        - Ensure student email format is valid (@mergington.edu)
+        - Test registration and unregistration functions
+        - Verify participant lists are updated correctly

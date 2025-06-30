@@ -1,0 +1,178 @@
+name: 📅 Schedule Changes
+description: Request changes to activity schedules (times, days, or frequency)
+title: "[SCHEDULE CHANGE] "
+labels: ["schedule", "urgent"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Need to change an activity schedule?
+        
+        Use this form for urgent schedule changes, room conflicts, or other scheduling issues that need quick attention.
+
+  - type: dropdown
+    id: change-type
+    attributes:
+      label: Type of Schedule Change
+      description: What kind of schedule change is needed?
+      options:
+        - Emergency - Activity cancelled today/tomorrow
+        - Room conflict - Need different location
+        - Time change - Different start/end time
+        - Day change - Moving to different day(s)
+        - Temporary change - Short-term adjustment
+        - Permanent change - Long-term schedule modification
+        - One-time event - Special session or makeup
+    validations:
+      required: true
+
+  - type: dropdown
+    id: activity-name
+    attributes:
+      label: Which Activity?
+      description: Select the activity that needs schedule changes
+      options:
+        - Chess Club
+        - Programming Class
+        - Morning Fitness
+        - Soccer Team
+        - Basketball Team
+        - Art Club
+        - Drama Club
+        - Math Club
+        - Debate Team
+        - Weekend Robotics Workshop
+        - Science Olympiad
+        - Sunday Chess Tournament
+        - Other (specify below)
+    validations:
+      required: true
+
+  - type: input
+    id: other-activity
+    attributes:
+      label: Other Activity Name
+      description: If you selected "Other" above, please specify
+
+  - type: textarea
+    id: current-schedule
+    attributes:
+      label: Current Schedule
+      description: What is the current schedule that needs to change?
+      placeholder: e.g., "Tuesdays and Thursdays, 3:30 PM - 5:00 PM in Room 204"
+    validations:
+      required: true
+
+  - type: textarea
+    id: requested-schedule
+    attributes:
+      label: Requested New Schedule
+      description: What should the new schedule be?
+      placeholder: e.g., "Wednesdays and Fridays, 3:30 PM - 5:00 PM in Room 105"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: How urgent is this?
+      description: When does this change need to happen?
+      options:
+        - Emergency - Needs immediate attention (today)
+        - Very Urgent - Within 1-2 days
+        - Urgent - Within this week
+        - Soon - Within 2 weeks
+        - Planned - For next trimester/semester
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason for Change
+      description: Why is this schedule change necessary?
+      placeholder: e.g., "Room double-booked", "Teacher schedule conflict", "Equipment not available", "Student safety concern"
+    validations:
+      required: true
+
+  - type: input
+    id: affected-dates
+    attributes:
+      label: Dates Affected
+      description: Which specific dates are affected by this change?
+      placeholder: e.g., "January 15-30", "This week only", "Ongoing starting Monday"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: duration
+    attributes:
+      label: Duration of Change
+      description: How long will this schedule change last?
+      options:
+        - One session only
+        - One week
+        - 2-3 weeks
+        - Rest of trimester
+        - Rest of school year
+        - Permanent change
+        - Until further notice
+    validations:
+      required: true
+
+  - type: textarea
+    id: student-notification
+    attributes:
+      label: Student Notification Plan
+      description: How will students be notified about this change?
+      placeholder: e.g., "Will announce in class", "Will send email to registered students", "Need help contacting students"
+    validations:
+      required: true
+
+  - type: input
+    id: alternative-contact
+    attributes:
+      label: Your Contact Information
+      description: How can we reach you if we need clarification?
+      placeholder: e.g., "mrodriguez@mergington.edu", "Room 205", "Extension 1234"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: coordination
+    attributes:
+      label: Coordination Checklist
+      description: Please confirm these items
+      options:
+        - label: I have checked for conflicts with other activities
+        - label: I have confirmed new room/location availability (if applicable)
+        - label: I understand this may affect student registrations
+        - label: I will help notify affected students
+
+  - type: textarea
+    id: additional-notes
+    attributes:
+      label: Additional Notes
+      description: Any other important details?
+      placeholder: e.g., "Backup plan if primary option doesn't work", "Equipment needs for new location", "Transportation considerations"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## ✅ Acceptance Criteria
+        When this schedule change is completed:
+        - [ ] Activity schedule is updated in the system
+        - [ ] Students can see the new schedule on the website
+        - [ ] No scheduling conflicts exist
+        - [ ] Registered students are notified of changes
+        - [ ] Activity filtering and display still work correctly
+
+        ## 💡 Technical Notes for Developers
+        - Update activity schedule in `src/backend/database.py`
+        - Convert new schedule to proper format (days array and 24-hour time)
+        - Ensure website displays updated schedule immediately
+        - Check for any code that might be hardcoded to old schedule
+        - Test activity filtering with new schedule
+        - Verify registration functionality still works
+        - Consider if temporary changes need special handling
