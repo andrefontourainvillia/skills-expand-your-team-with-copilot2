@@ -1,0 +1,159 @@
+name: 🐛 Bug Report
+description: Report a problem with the school activities system
+title: "[BUG] "
+labels: ["bug"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Found a problem with the system?
+        
+        Please help us fix it by providing detailed information about what went wrong.
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: What happened?
+      description: Describe the problem you encountered
+      placeholder: e.g., "When I try to register a student, I get an error message"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: What should have happened?
+      description: Describe what you expected to happen instead
+      placeholder: e.g., "Student should be successfully registered for the activity"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Tell us exactly how to reproduce this problem
+      placeholder: |
+        1. Go to the activities website
+        2. Click on 'Chess Club'
+        3. Enter student email
+        4. Click register
+        5. See error message
+    validations:
+      required: true
+
+  - type: textarea
+    id: error-message
+    attributes:
+      label: Error Message
+      description: If you saw an error message, please copy it exactly here
+      placeholder: Copy and paste the exact error message
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Which web browser are you using?
+      description: This helps us understand if it's a browser-specific issue
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other
+        - Not applicable (not a website issue)
+
+  - type: dropdown
+    id: device-type
+    attributes:
+      label: Device Type
+      description: What device were you using?
+      options:
+        - Desktop computer
+        - Laptop
+        - Tablet
+        - Smartphone
+        - School computer
+        - Not applicable
+
+  - type: dropdown
+    id: affected-area
+    attributes:
+      label: Which part of the system has the problem?
+      description: This helps us focus on the right area
+      options:
+        - Student registration
+        - Activity viewing/browsing
+        - Teacher login
+        - Activity filtering
+        - Student unregistration
+        - Website loading
+        - Activity details display
+        - Other (describe below)
+    validations:
+      required: true
+
+  - type: input
+    id: teacher-account
+    attributes:
+      label: Teacher Account (if relevant)
+      description: If this involves teacher functions, which teacher account?
+      placeholder: e.g., "mrodriguez", "mchen", "principal"
+
+  - type: input
+    id: activity-involved
+    attributes:
+      label: Activity Involved (if relevant)
+      description: Which activity was involved when the problem occurred?
+      placeholder: e.g., "Chess Club", "Math Club"
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does this happen?
+      description: Does this happen every time or just sometimes?
+      options:
+        - Always - happens every time
+        - Often - happens most of the time
+        - Sometimes - happens occasionally
+        - Once - only happened once so far
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: How much does this affect your work?
+      description: Help us understand the priority
+      options:
+        - Critical - Cannot do my job
+        - High - Major inconvenience
+        - Medium - Minor inconvenience
+        - Low - Barely noticeable
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional Information
+      description: Any other details that might help us fix this?
+      placeholder: e.g., "This started happening yesterday", "Only affects certain students", "Workaround I found"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## ✅ Acceptance Criteria
+        When this bug is fixed:
+        - [ ] The reported problem no longer occurs
+        - [ ] System works as described in "expected behavior"
+        - [ ] Fix doesn't break other functionality
+        - [ ] Similar issues are prevented if possible
+
+        ## 💡 Technical Notes for Developers
+        - Reproduce the issue using the provided steps
+        - Check relevant logs for error details
+        - Test fix thoroughly before deploying
+        - Consider if this indicates a broader problem
+        - Update error handling if needed
+        - Verify fix works across different browsers/devices if relevant

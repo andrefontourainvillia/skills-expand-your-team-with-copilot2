@@ -1,0 +1,133 @@
+name: ✨ Feature Request
+description: Suggest a new feature or improvement for the activities system
+title: "[FEATURE] "
+labels: ["enhancement", "feature-request"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Have an idea to improve the system?
+        
+        We'd love to hear your suggestions for new features or improvements that would help you better manage student activities.
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: What new feature would you like?
+      description: Describe the feature or improvement you'd like to see
+      placeholder: e.g., "Ability to send email notifications to students", "Export student lists to Excel", "Calendar view of activities"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-solving
+    attributes:
+      label: What problem would this solve?
+      description: Explain what challenge or inefficiency this feature would address
+      placeholder: e.g., "Currently I have to manually contact each student about schedule changes", "I need to create reports for administration"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-workaround
+    attributes:
+      label: How do you handle this now?
+      description: What's your current process or workaround for this need?
+      placeholder: e.g., "I keep a separate spreadsheet", "I manually send individual emails", "I print out lists from the website"
+
+  - type: dropdown
+    id: user-type
+    attributes:
+      label: Who would benefit from this feature?
+      description: Select all that apply
+      multiple: true
+      options:
+        - Teachers managing activities
+        - Students browsing activities
+        - Principal/Administration
+        - Parents
+        - All users
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: How important is this to you?
+      description: Help us understand the priority
+      options:
+        - Critical - Essential for doing my job effectively
+        - High - Would significantly improve my workflow
+        - Medium - Would be a nice convenience
+        - Low - Minor improvement
+    validations:
+      required: true
+
+  - type: textarea
+    id: detailed-requirements
+    attributes:
+      label: Detailed Requirements
+      description: Provide specific details about how this feature should work
+      placeholder: |
+        e.g., For an email notification feature:
+        - Send automatic emails when students register
+        - Include activity details in the email
+        - Allow teachers to send custom messages
+        - Send reminders before activity sessions
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples or References
+      description: Are there examples from other systems or websites that work well?
+      placeholder: e.g., "Like how Google Classroom sends notifications", "Similar to how our gradebook system works"
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: How complex do you think this would be?
+      description: Just your best guess - helps with planning
+      options:
+        - Simple - Small change or addition
+        - Medium - Moderate new functionality
+        - Complex - Major new feature
+        - Not sure
+
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: How would you know this feature is working well?
+      description: What would success look like?
+      placeholder: e.g., "I can export a complete student roster in under 30 seconds", "Students receive notifications within 5 minutes of registration"
+
+  - type: checkboxes
+    id: alternatives-considered
+    attributes:
+      label: Have you considered alternatives?
+      description: Check any that apply
+      options:
+        - label: I've looked for existing features that might meet this need
+        - label: I've considered if this could be done outside the system
+        - label: I've asked other teachers if they have similar needs
+        - label: This is the best solution I can think of
+
+  - type: markdown
+    attributes:
+      value: |
+        ## ✅ Acceptance Criteria
+        When this feature is implemented:
+        - [ ] Feature works as described in the requirements
+        - [ ] Feature is easy to use and understand
+        - [ ] Feature doesn't break existing functionality
+        - [ ] Feature provides the expected benefits
+        - [ ] Users can easily learn how to use the feature
+
+        ## 💡 Technical Notes for Developers
+        - Evaluate technical feasibility and complexity
+        - Consider impact on existing system architecture
+        - Plan for proper testing and documentation
+        - Consider security and privacy implications
+        - Think about scalability and performance
+        - Plan user interface and experience design
+        - Consider if this affects mobile/tablet users

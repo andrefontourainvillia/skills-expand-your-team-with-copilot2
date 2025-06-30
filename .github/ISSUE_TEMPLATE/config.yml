@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📞 Need Immediate Help?
+    url: mailto:principal@mergington.edu
+    about: For urgent issues that can't wait for a GitHub response, contact Principal Martinez directly
+  - name: 📚 System Documentation
+    url: https://github.com/andrefontourainvillia/skills-expand-your-team-with-copilot2/blob/main/docs/how-to-develop.md
+    about: Learn more about how the system works and technical details
+  - name: 💡 General Questions
+    url: https://github.com/andrefontourainvillia/skills-expand-your-team-with-copilot2/discussions
+    about: Ask questions or discuss ideas with other teachers and administrators
