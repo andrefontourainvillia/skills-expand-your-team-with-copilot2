@@ -97,7 +97,8 @@ initial_activities = {
             "end_time": "17:00"
         },
         "max_participants": 15,
-        "participants": ["amelia@mergington.edu", "harper@mergington.edu"]
+        "participants": ["amelia@mergington.edu", "harper@mergington.edu"],
+        "difficulty_level": "Beginner"
     },
     "Drama Club": {
         "description": "Act, direct, and produce plays and performances",
@@ -154,7 +155,8 @@ initial_activities = {
             "end_time": "16:00"
         },
         "max_participants": 18,
-        "participants": ["isabella@mergington.edu", "lucas@mergington.edu"]
+        "participants": ["isabella@mergington.edu", "lucas@mergington.edu"],
+        "difficulty_level": "Advanced"
     },
     "Sunday Chess Tournament": {
         "description": "Weekly tournament for serious chess players with rankings",
